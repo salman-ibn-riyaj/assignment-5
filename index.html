@@ -17,12 +17,60 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- custom css is here  -->
-     <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/style.css">
 
 
 </head>
 
 <body>
+    <main class="w-[520px] mx-auto bg-white p-8 shadow-lg min-h-screen">
+
+        <!-- github logo section div -->
+        <div class="text-center space-y-2 mb-2">
+            <div class="image flex justify-center mb-3">
+                <img width="100px" height="100px" src="./assets/github-logo.png" alt="">
+            </div>
+
+            <h2 class="font-bold text-2xl">GitHub Issues Tracker</h2>
+
+            <p class="text-gray-400">Sign in to manage your issues</p>
+        </div>
+
+        <!-- log in section div  -->
+        <div class="w-[520px] mx-auto">
+
+            <div class="card bg-white w-[450px]">
+                <div class="card-body">
+                    <fieldset class="fieldset">
+                        <label class="label text-black">Username</label>
+                        <input type="text" class="input w-full" placeholder="Enter username" />
+                        <label class="label text-black">Password</label>
+                        <input type="password" class="input w-full" placeholder="Enter password" />
+                        <button class="btn btn-primary mt-4">Sign In</button>
+                    </fieldset>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- or section div is here  -->
+        <div class="flex items-center gap-4 w-[400px] mx-auto">
+            <div class="flex-1 h-px bg-gray-300"></div>
+            <span class="text-black font-medium">OR</span>
+            <div class="flex-1 h-px bg-gray-300"></div>
+        </div>
+
+        <p class="text-gray-400 text-center mt-4 mb-2">Demo Credentials:</p>
+
+
+        <!-- username and password div is here  -->
+        <div class="bg-base-200 w-[400px] mx-auto text-center p-2">
+            <p>Username: admin</p>
+            <p>Password: admin123</p>
+        </div>
+
+
+    </main>
 
 </body>
 
