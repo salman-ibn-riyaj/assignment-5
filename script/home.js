@@ -24,3 +24,29 @@ let dataLoad = () => {
 };
 
 dataLoad();
+
+
+document.getElementById('allBtn').addEventListener('click', () => {
+  btnActiveKoro('allBtn');
+  issueCardDekhao(allIssueData);
+});
+
+document.getElementById('openBtn').addEventListener('click', () => {
+  btnActiveKoro('openBtn');
+
+  let openGula = allIssueData.filter(item => item.status === 'open');
+  issueCardDekhao(openGula);
+});
+
+document.getElementById('closeBtn').addEventListener('click', () => {
+  btnActiveKoro('closBtn');
+
+  let closedGula = allIssueData.filter(item => item.status === 'closed');
+
+  issueCardDekhao(closedGula);
+});
+
+
+
+
+
