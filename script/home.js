@@ -114,3 +114,75 @@ let issueCardDekhao = (issueList) => {
 };
 
 // modal ta khulbo
+
+
+const modalKholo = (issueId) => {
+ let singleIssueUrl = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${issueId}`;
+
+ fetch(singleIssueUrl)
+   .then((res) => res.json())
+   .then((res) => {
+     let issue = res.data;
+     // console.log(issue)
+
+     document.getElementById("modalContainer").innerHTML = `
+       <h2 class="font-bold text-2xl mb-5">${issue.title}</h2>
+
+       <div class="flex items-center gap-3 mb-5">
+         <span class="text-black text-xs px-3 py-1 rounded-full">${issue.status.toUpperCase()}</span>
+         <span class="text-gray-300 text-sm">Opened by ${issue.author} ${new Date(issue.createdAt).toLocaleDateString()}</span>
+       </div>
+
+       <div class="flex gap-2 mb-4">
+         ${issue.labels
+           .map(
+             (label, i) => `
+           <span class="border border-gray-400 text-gray-600 text-[12px] px-3 py-1 rounded-full">
+             <i class="fa-solid ${i === 0 ? "fa-bug" : "fa-life-ring"}"></i> ${label.toUpperCase()}
+           </span>`
+           )
+           .join("")}
+       </div>
+
+       <p class="text-gray-700 mb-7">${issue.description}</p>
+
+       <div class="bg-gray-200 rounded-md p-6 flex justify-between mb-10">
+         <div>
+           <p class="text-gray-500 text-[16px]">Assignee:</p>
+           <p class="font-medium">${issue.assignee}</p>
+         </div>
+         <div>
+           <p class="text-gray-600 text-[16px]">Priority:</p>
+           <span class="text-black text-[1rem] px-3 py-1 rounded-full">${issue.priority}</span>
+         </div>
+       </div>
+
+       <div class="flex justify-end">
+         <button onclick="document.getElementById('showModal').close()" class="btn text-black px-12">Close</button>
+       </div>`;
+
+     document.getElementById("showModal").showModal();
+   });
+};
+
+// search button e click korle
+document.getElementById("search-btn").addEventListener("click", () => {
+ let khojorText = document.getElementById("searchInput").value;
+
+ // jodi kisu na likhe search kore
+ if (!khojorText) {
+   issueCardDekhao(allIssueData);
+   return;
+ }
+
+ // console.log("khujchi:", khojorText)
+
+ let searchUrl = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${khojorText}`;
+
+ fetch(searchUrl)
+   .then((res) => res.json())
+   .then((data) => {
+     // console.log(data)
+     issueCardDekhao(data.data);
+   });
+});
