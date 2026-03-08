@@ -1,11 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment-5 || HomePage</title>
+
+    <!-- google Geist font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+
+    <!-- font awesome cdn link is here  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- tailwind + daisyUI khala is here  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- custom css is here  -->
+    <link rel="stylesheet" href="./style/style.css">
 </head>
+
 <body>
-    <h2>Hi I am home page</h2>
+
+    <!-- navbar section is here bro  -->
+    <nav class="flex justify-between items-center py-10 p-5 btn mb-15">
+        <div class="flex gap-1 items-center">
+            <img width="36px" height="36px" src="./assets/github-logo.png" alt="">
+            <h2>GitHub Issues Tracker</h2>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <input type="search" name="" id="searchInput" placeholder="Search Issues" class="p-2 rounded-md">
+            <button class="btn btn-primary" id="search-btn">Search</button>
+        </div>
+    </nav>
+
+    <!-- tabs buttons section is here bro  -->
+    <section class="w-10/12 mx-auto shadow-md p-3 bg-base-200 mb-4">
+
+        <button id="allBtn" class="btn btn-primary text-white">All</button>
+        <button id="openBtn" class="btn">Open</button>
+        <button id="closeBtn" class="btn">Closed</button>
+
+    </section>
+
+    <!-- issues statistics section is start from here  -->
+    <section class="w-10/12 mx-auto shadow-md p-4 bg-base-200 mb-4">
+
+        <div class="flex justify-between items-center">
+            <div class="flex items-center gap-1">
+                <div class="bg-gray-200 p-1 rounded-full">
+                    <img src="./assets/Aperture.png" alt="">
+                </div>
+                <div>
+                    <h2 id="numberOfIssues" class="font-bold">50 issues</h2>
+                    <p class="text-gray-400">Track and manage your project issues</p>
+                </div>
+            </div>
+
+            <div class="flex gap-3 items-center">
+                <div><span class="w-3 h-3 bg-green-600 rounded-[100%] inline-block"></span> Open</div>
+                <div><span class="w-3 h-3 bg-purple-600 rounded-[100%] inline-block"></span> Closed</div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- all card container section  -->
+    <section class="w-10/12 mx-auto shadow-md p-4 bg-base-200">
+        <div id="allCardContainer" class="grid grid-cols-4 gap-4">
+
+
+        </div>
+    </section>
+
+
+    <!-- my modal section  -->
+
+    <dialog id="showModal" class="modal">
+        <div class="modal-box">
+            <div id="modalContainer">
+
+            </div>
+        </div>
+    </dialog>
+
+
+
+
+
+    <script src="./script/home.js"></script>
 </body>
+
 </html>
