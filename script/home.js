@@ -47,6 +47,23 @@ document.getElementById('closeBtn').addEventListener('click', () => {
 });
 
 
+const btnActiveKoro = (activeBtnId) => {
+  let btnIdGula= ['allBtn', 'openBtn', 'closeBtn'];
+
+  btnIdGula.forEach(id => {
+    let eachBtn = document.getElementById(id);
+
+    eachBtn.classList.remove('btn-primary', 'text-white');
+  });
+
+  document.getElementById(activeBtnId).classList.add('btn-primary', 'text-white');
+
+}
+
+
+
+
+
 
 
 
